@@ -1,0 +1,21 @@
+{
+  "name": "Atelier",
+  "short_name": "Atelier",
+  "start_url": "./index.html?v=atelier-sport",
+  "display": "standalone",
+  "background_color": "#faf4ef",
+  "theme_color": "#806f68",
+  "description": "Atelier avec onglet sport, mensurations, culture intégrée et photos appartement.",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
