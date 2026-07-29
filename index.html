@@ -1,4 +1,75 @@
 <!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#806f68"><link rel="manifest" href="manifest.json"><link rel="apple-touch-icon" href="icon-192.png"><title>Atelier MK</title><style>
+  /* Atelier MK V7.3.6 - Hotfix iPhone scroll + sport date field */
+html, body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  overscroll-behavior-x: none;
+  overscroll-behavior-y: contain;
+  touch-action: pan-y;
+  -webkit-overflow-scrolling: touch;
+}
+
+body, .app, main, .panel, .row, .list, .form, .hero, .focus {
+  overscroll-behavior: contain;
+  touch-action: pan-y;
+}
+
+.tabs {
+  touch-action: pan-x;
+  overscroll-behavior-x: contain;
+}
+
+.form > input,
+.form > select,
+.form > textarea,
+#sportDate {
+  min-width: 0;
+  width: 100%;
+  max-width: 100%;
+}
+
+input[type="date"] {
+  min-width: 0;
+  width: 100%;
+  max-width: 100%;
+  -webkit-appearance: none;
+  appearance: none;
+  line-height: 1.25;
+}
+
+@supports (-webkit-touch-callout: none) {
+  input[type="date"] {
+    padding-right: 10px;
+    font-size: 16px;
+  }
+}
+
+
+/* 2) JS optionnel à coller juste avant </script> */
+<script>
+// Atelier MK V7.3.6 - Hotfix gesture lock
+// Optional JS helper: prevents accidental horizontal gesture drift while preserving vertical scroll.
+(function () {
+  let startX = 0;
+  let startY = 0;
+  document.addEventListener('touchstart', function (e) {
+    if (!e.touches || !e.touches.length) return;
+    startX = e.touches[0].clientX;
+    startY = e.touches[0].clientY;
+  }, { passive: true });
+
+  document.addEventListener('touchmove', function (e) {
+    if (!e.touches || !e.touches.length) return;
+    const dx = Math.abs(e.touches[0].clientX - startX);
+    const dy = Math.abs(e.touches[0].clientY - startY);
+    if (dx > dy && dx > 18) {
+      e.preventDefault();
+    }
+  }, { passive: false });
+})();
+
+</script>
 :root{--ink:#39342f;--muted:#786f68;--deep:#806f68;--sage:#aebb9d;--soft:#fbf0ed;--line:rgba(128,111,104,.16);--gold:#b99a68;--r:22px;--shadow:0 12px 28px rgba(80,63,51,.10)}*{box-sizing:border-box}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Avenir Next","Segoe UI",Roboto,Arial,sans-serif;color:var(--ink);background:radial-gradient(circle at 8% 0,#fae9e4,transparent 30%),linear-gradient(135deg,#faf4ef,#fffaf7);line-height:1.45}button,input,select,textarea{font:inherit;width:100%;max-width:100%;border:1px solid var(--line);border-radius:16px;padding:12px 13px;background:#fffdf9;color:var(--ink)}button{font-weight:650;cursor:pointer}textarea{resize:vertical;min-height:90px}.app{max-width:1120px;margin:auto;padding:14px 12px 116px}main{display:none}main.active{display:block}.hero,.focus,.panel,.row,.stat,.card,.mini{background:rgba(255,251,247,.97);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow)}.hero{padding:22px;margin-bottom:12px;background:linear-gradient(135deg,#fffbf7,#fbf0ed,#f5f9f2)}h1{font-size:clamp(2.35rem,8vw,4.1rem);font-weight:500;letter-spacing:-.06em;margin:8px 0}h2{font-size:1.32rem;margin:0 0 12px}h3{font-size:1.04rem;margin:0 0 6px}p{margin:0}.muted,.meta,.small{color:var(--muted)}.meta{font-size:.82rem}.small{font-size:.78rem}.tag,.pill{display:inline-flex;width:auto;padding:5px 9px;border-radius:999px;background:var(--soft);color:var(--deep);font-weight:700;font-size:.76rem}.tabs{position:fixed;left:8px;right:8px;bottom:8px;z-index:50;display:flex;gap:7px;overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;scroll-snap-type:x mandatory;padding:7px;background:rgba(255,253,248,.96);border:1px solid var(--line);border-radius:24px;box-shadow:0 -10px 28px rgba(80,63,51,.13);scrollbar-width:none}.tabs::-webkit-scrollbar{display:none}.tabs button{flex:0 0 auto;width:auto;min-width:88px;padding:10px 12px;border-radius:16px;font-size:.78rem;white-space:nowrap;scroll-snap-align:center;color:var(--muted)}.tabs button.active{background:linear-gradient(135deg,var(--deep),var(--sage));color:#fff}.actions,.stats,.grid,.list,.form,.choices,.dailyGrid,.typeStats{display:grid;gap:10px}.actions{margin-top:14px}.panel{padding:16px;margin-bottom:12px}.focus{padding:18px;margin-bottom:12px;background:linear-gradient(135deg,#806f68,#a08c82 58%,#bda698);color:white}.focus .muted{color:rgba(255,255,255,.8)}.primary{background:linear-gradient(135deg,var(--deep),var(--sage));color:white;border:0}.soft{background:#f8f2ed;color:var(--deep)}.ok{background:#f3f8ee;color:#3f6b46}.danger{background:#fff0ec;color:#9a3a2e}.stats{grid-template-columns:repeat(2,minmax(0,1fr));margin-bottom:12px}.stat,.mini{padding:14px}.stat span,.mini span{display:block;font-size:.7rem;text-transform:uppercase;color:#968a82;font-weight:650;letter-spacing:.05em}.stat strong,.mini strong{font-size:1.32rem;color:var(--deep)}.mini strong{display:block}.row{padding:14px;display:grid;gap:10px}.row.done{background:#f3f8ee}.rowActions{display:flex;flex-wrap:wrap;gap:7px}.rowActions button,.rowActions select{width:auto;max-width:100%;padding:8px 10px;border-radius:12px;font-size:.84rem}.sortLine{display:grid;grid-template-columns:1fr;gap:8px;margin-bottom:10px}.dailyGrid,.typeStats{grid-template-columns:repeat(2,minmax(0,1fr))}.dailyCard{padding:14px;background:#fffaf6;border:1px solid var(--line);border-radius:18px;display:grid;gap:9px}.dailyToggle{display:flex;align-items:center;gap:10px;text-align:left}.box{width:30px;height:30px;border-radius:10px;border:1px solid var(--line);display:grid;place-items:center;background:#fff;flex:0 0 auto}.done .box{background:#f3f8ee;color:#3f6b46}.progress{height:11px;background:#eee7dc;border-radius:999px;overflow:hidden;margin-top:6px}.bar{height:100%;background:linear-gradient(90deg,var(--sage),var(--gold));border-radius:999px}.stepsControls{display:grid;grid-template-columns:1fr auto;gap:8px;align-items:center}.stepsControls button{width:auto}.choices{grid-template-columns:1fr 1fr}.choice{display:flex;flex-direction:column;align-items:flex-start;gap:7px;text-align:left;min-height:94px;padding:14px;line-height:1.25}.hobbyHeader{display:flex;align-items:center;gap:10px;margin-bottom:8px}.hobbyIcon{width:38px;height:38px;display:grid;place-items:center;border-radius:14px;background:var(--soft);font-size:1.25rem;flex:0 0 auto}.empty{padding:20px;text-align:center;border:1px dashed var(--line);border-radius:18px;color:var(--muted)}@media(min-width:760px){.actions{grid-template-columns:repeat(4,1fr)}.stats{grid-template-columns:repeat(6,minmax(0,1fr))}.grid{grid-template-columns:repeat(3,1fr)}.layout{display:grid;grid-template-columns:340px minmax(0,1fr);gap:12px}.sortLine{grid-template-columns:repeat(2,1fr)}.dailyGrid{grid-template-columns:repeat(3,1fr)}.typeStats{grid-template-columns:repeat(4,1fr)}.tabs{position:sticky;bottom:auto;margin-bottom:12px}.app{padding-bottom:28px}}
 </style></head><body><div class="app"><nav class="tabs"><button data-tab="home" class="active">Accueil</button><button data-tab="mood">Mood</button><button data-tab="hobbies">Hobbies</button><button data-tab="sport">Sport</button><button data-tab="culture">Culture</button><button data-tab="todo">To do</button><button data-tab="groceries">Courses</button><button data-tab="apartment">Appart</button><button data-tab="wishes">Envies</button><button data-tab="profile">Profil</button></nav>
 <main id="home" class="active"><section class="hero"><span class="tag">Atelier MK</span><h1>Bonjour Margot ✿</h1><p class="muted">V7.3.5 finale : watchlist films enrichie, sous-catégories restaurées, wording corrigé.</p><div class="actions"><button class="primary" id="antiBtn">🎲 Anti-scroll</button><button class="soft" id="moodHomeBtn">😊 Mood</button><button class="soft" id="todoPick">📝 Tâche douce</button><button class="soft" id="culturePick">🍿 Culture surprise</button></div></section><section class="focus"><p class="muted">✨ Suggestion du moment</p><h2 id="focusTitle">Choisis une intention douce.</h2><p id="focusText" class="muted">Les boutons donnent une idée sans changer d’onglet.</p><div id="focusAction" class="rowActions"></div></section><section class="stats" id="homeStats"></section><section class="panel"><h2>Mes quotidiens</h2><div class="dailyGrid" id="dailyTasks"></div></section><section class="panel"><h2>Aujourd’hui</h2><div id="todayRecap"></div></section><section class="panel"><h2>Demain</h2><div id="tomorrowRecap"></div></section></main>
