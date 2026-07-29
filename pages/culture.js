@@ -2,61 +2,56 @@ import { MOVIES } from '../data.js';
 import { addPts, save, state } from '../app.js';
 
 export function renderCulture() {
-  setTimeout(bindCulture);
+  setTimeout(bindCulture, 0);
 
   return `
-    <!-- PAGE CULTURE -->
     <div class="card">
       <div class="row">
         <div>
           <h2>🎬 Culture</h2>
-          <p class="muted">Films, séries, livres, mangas et envies à suivre</p>
+          <p class="muted">Films, séries, livres, mangas et idées à découvrir</p>
         </div>
-        <button class="primary" id="openAddCulture">➕ Ajouter</button>
+      </div>
+
+      <div class="wrap">
+        <button class="primary" id="btnAddCulture">➕ Ajouter</button>
+        <button class="chip" id="btnSurpriseCulture">🎲 Surprise</button>
       </div>
 
       <div class="grid2">
         <div class="stat">
-          <b id="countDone">0</b>
-          <span>vus / lus</span>
+          <b id="statTotal">0</b>
+          <span>œuvres</span>
         </div>
         <div class="stat">
-          <b id="countWishlist">0</b>
-          <span>à découvrir</span>
+          <b id="statDone">0</b>
+          <span>validées</span>
         </div>
         <div class="stat">
-          <b id="countFavs">0</b>
+          <b id="statFav">0</b>
           <span>favoris</span>
         </div>
         <div class="stat">
-          <b id="countTotal">0</b>
-          <span>œuvres</span>
+          <b id="statTodo">0</b>
+          <span>à voir</span>
         </div>
       </div>
 
-      <button class="chip" id="surpriseCulture">🎲 Surprise Culture</button>
+      <input class="input" id="cultureSearch" placeholder="Rechercher une œuvre...">
 
-      <input class="input" id="searchCulture" placeholder="Rechercher une œuvre...">
-
-      <div class="wrap" id="typeFilters">
-        <button class="chip sel" data-type="Tous">Tous</button>
-        <button class="chip" data-type="Film">🎬 Films</button>
-        <button class="chip" data-type="Série">📺 Séries</button>
-        <button class="chip" data-type="Livre">📚 Livres</button>
-        <button class="chip" data-type="Manga">📖 Mangas</button>
-        <button class="chip" data-type="Anime">🍥 Animés</button>
+      <div class="wrap" id="cultureStatusFilters">
+        <button class="chip sel" data-status="all">Tout</button>
+        <button class="chip" data-status="todo">👀 À voir</button>
+        <button class="chip" data-status="done">✅ Vu / lu</button>
+        <button class="chip" data-status="fav">❤️ Favoris</button>
       </div>
 
-      <div class="wrap" id="statusFilters">
-        <button class="chip sel" data-status="Tous">Tout</button>
-        <button class="chip" data-status="Wishlist">📌 À découvrir</button>
-        <button class="chip" data-status="Done">✅ Fait</button>
-        <button class="chip" data-status="Fav">❤️ Favoris</button>
-      </div>
-
-      <div class="wrap" id="catFilters"></div>
+      <div class="wrap" id="cultureCatFilters"></div>
     </div>
 
-    <div class="card hidden" id="addCultureBox">
+    <div class="card" id="addCultureForm" style="display:none;">
       <h3>➕ Ajouter une œuvre</h3>
 
+      <input class="input" id="newCultureTitle" placeholder="Titre">
+
+      <select class="input" id=
