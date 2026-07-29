@@ -1,18 +1,22 @@
 import { addPts, save, pct, level, nextLevel, statCard, go, state } from '../app.js';
 
-const inspirations = {
-  anti: "Pose ton téléphone pendant 30 minutes et profite du moment présent.",
-  mood: "Va dans l'onglet Mood pour trouver une activité adaptée à ton humeur.",
-  soft: "Range un seul petit espace pendant 5 minutes.",
-  culture: "Choisis un film Feel Good dans l'onglet Culture."
-};
+const softTasks = [
+  "Range un tiroir pendant 5 minutes",
+  "Prépare tes affaires pour demain",
+  "Vide ta corbeille",
+  "Arrose une plante",
+  "Fais un rapide ménage de ton bureau",
+  "Étire-toi pendant 3 minutes"
+];
 
 export function renderHome(s) {
 
-  setTimeout(bindHome);
+  setTimeout(bindHome, 0);
 
   const today = s.todos.filter(t => t.date === 'today');
   const tomorrow = s.todos.filter(t => t.date === 'tomorrow');
+
+  const openTodos = s.todos.filter(t => !t.done);
 
   return `
 
@@ -27,8 +31,9 @@ export function renderHome(s) {
     </div>
 
     <div class="progress" style="margin-top:16px">
-      <div class="bar"
-           style="width:${pct(s.points,nextLevel())}%">
+      <div
+        class="bar"
+        style="width:${pct(s.points, nextLevel())}%">
       </div>
     </div>
 
@@ -38,7 +43,6 @@ export function renderHome(s) {
 
   </div>
 
-
   <h2 class="sectionTitle">
     💡 Inspirations
   </h2>
@@ -47,24 +51,28 @@ export function renderHome(s) {
 
     <div class="grid grid2">
 
-      <button class="chip inspirationBtn"
-              data-idea="${inspirations.anti}">
+      <button
+        class="chip inspirationBtn"
+        data-type="anti">
         🔒 Anti-scroll
       </button>
 
-      <button class="chip inspirationBtn"
-              data-idea="${inspirations.mood}">
+      <button
+        class="chip inspirationBtn"
+        data-type="mood">
         🧠 Mood
       </button>
 
-      <button class="chip inspirationBtn"
-              data-idea="${inspirations.soft}">
+      <button
+        class="chip inspirationBtn"
+        data-type="soft">
         🌿 Tâche douce
       </button>
 
-      <button class="chip inspirationBtn"
-              data-idea="${inspirations.culture}">
-        🎬 Culture
+      <button
+        class="chip inspirationBtn"
+        data-type="culture">
+        🎬 Surprise culture
       </button>
 
     </div>
@@ -74,12 +82,11 @@ export function renderHome(s) {
       class="card soft"
       style="margin-top:15px">
 
-      Sélectionne une inspiration.
+      Clique sur une inspiration ✨
 
     </div>
 
   </div>
-
 
   <h2 class="sectionTitle">
     📊 Tableau de bord
@@ -87,17 +94,16 @@ export function renderHome(s) {
 
   <div class="grid grid2">
 
-    ${statCard('Points',s.points)}
-    ${statCard('Sport',s.sport.week+'/4')}
-    ${statCard('Pas',s.steps)}
-    ${statCard('To-do',today.filter(t=>!t.done).length)}
-    ${statCard('Calories',s.calories)}
-    ${statCard('Protéines',s.proteins+'g')}
-    ${statCard('Stretching',s.sport.stretch+'/7')}
-    ${statCard('Skincare',(s.daily.skincare?1:0)+'/7')}
+    ${statCard('Sport', s.sport.week + '/4')}
+    ${statCard('Pas', s.steps)}
+    ${statCard('To-do', today.filter(t => !t.done).length)}
+    ${statCard('Calories', s.calories)}
+    ${statCard('Protéines', s.proteins + 'g')}
+    ${statCard('Stretching', s.sport.stretch + '/7')}
+    ${statCard('Skincare', (s.daily.skincare ? 1 : 0) + '/7')}
+    ${statCard('Eau', s.daily.water ? '✅' : '❌')}
 
   </div>
-
 
   <h2 class="sectionTitle">
     ✅ Mes quotidiens
@@ -154,7 +160,6 @@ export function renderHome(s) {
 
   </div>
 
-
   <h2 class="sectionTitle">
     📅 Agenda
   </h2>
@@ -166,10 +171,10 @@ export function renderHome(s) {
     ${
       today.length
       ? today.map(t => `
-          <div class="item">
-            <span>${t.text}</span>
-          </div>
-        `).join('')
+        <div class="item">
+          <span>${t.text}</span>
+        </div>
+      `).join('')
       : '<p class="muted">Rien de prévu</p>'
     }
 
@@ -187,7 +192,6 @@ export function renderHome(s) {
 
   </div>
 
-
   <div class="card">
 
     <h3>Demain</h3>
@@ -195,10 +199,10 @@ export function renderHome(s) {
     ${
       tomorrow.length
       ? tomorrow.map(t => `
-          <div class="item">
-            <span>${t.text}</span>
-          </div>
-        `).join('')
+        <div class="item">
+          <span>${t.text}</span>
+        </div>
+      `).join('')
       : '<p class="muted">Rien de prévu</p>'
     }
 
@@ -219,8 +223,7 @@ export function renderHome(s) {
   `;
 }
 
-
-function bindHome(){
+function bindHome() {
 
   document
     .querySelectorAll(".inspirationBtn")
@@ -228,10 +231,77 @@ function bindHome(){
 
       btn.onclick = () => {
 
+        if (btn.dataset.type === "mood") {
+          go('mood');
+          return;
+        }
+
+        let result = "";
+
+        const openTodos =
+          state.todos.filter(t => !t.done);
+
+        const randomTodo =
+          openTodos[
+            Math.floor(
+              Math.random() * openTodos.length
+            )
+          ];
+
+        const cultureList =
+          state.culture?.watchlist || [];
+
+        const randomCulture =
+          cultureList[
+            Math.floor(
+              Math.random() * cultureList.length
+            )
+          ];
+
+        switch (btn.dataset.type) {
+
+          case "anti":
+
+            result = `
+              <b>🔒 Anti-scroll</b><br><br>
+              Profite de ce temps pour avancer sur :<br>
+              <b>${randomTodo?.text || "Aucune tâche disponible"}</b>
+            `;
+
+            break;
+
+          case "soft":
+
+            result = `
+              <b>🌿 Tâche douce</b><br><br>
+              ${
+                softTasks[
+                  Math.floor(
+                    Math.random() * softTasks.length
+                  )
+                ]
+              }
+            `;
+
+            break;
+
+          case "culture":
+
+            result = `
+              <b>🎬 Surprise culture</b><br><br>
+              ${
+                randomCulture ||
+                "Ajoute un film ou une série à ta watchlist"
+              }
+            `;
+
+            break;
+
+        }
+
         document.getElementById(
           "inspirationResult"
-        ).innerHTML =
-        `<b>${btn.dataset.idea}</b>`;
+        ).innerHTML = result;
 
       };
 
@@ -246,7 +316,7 @@ function bindHome(){
         state.daily[e.target.dataset.daily] =
           e.target.checked;
 
-        if(e.target.checked){
+        if (e.target.checked) {
           addPts(25);
         }
 
