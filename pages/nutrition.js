@@ -1,5 +1,5 @@
 const nutritionGoals = {
-  calories: 1600,
+  calories: 1700,
   protein: 105
 };
 
