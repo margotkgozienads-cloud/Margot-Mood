@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Atelier MK - Accueil</title>
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#8f9f88">
+<style>
+:root{
+  --bg:#f8f3ec;
+  --card:#fffaf3;
+  --text:#4b4038;
+  --sub:#8a8076;
+  --sage:#8f9f88;
+  --sage-dark:#6f7d68;
+  --border:#ece0d3;
+  --soft:#f2e8dd;
+  --shadow:0 10px 30px rgba(0,0,0,0.08);
+  --radius:26px;
+}
+*{box-sizing:border-box}
+html,body{width:100%;overflow-x:hidden;overscroll-behavior-x:none}
+body{
+  margin:0;
+  padding:20px 16px 34px;
+  background:var(--bg);
+  color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Avenir Next",sans-serif;
+  touch-action:pan-y;
+}
+main{max-width:820px;margin:auto;display:grid;gap:16px}
+.card{
+  background:var(--card);
+  border-radius:var(--radius);
+  padding:18px;
+  border:1px solid var(--border);
+  box-shadow:var(--shadow);
+}
+.hero{
+  background:linear-gradient(145deg,#fffaf3,#f0e5da);
+  padding:24px 18px;
+}
+.hero h1{
+  margin:0;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:32px;
+  font-weight:400;
+  letter-spacing:-0.02em;
+}
+.hero p{margin:8px 0 0;color:var(--sub);font-size:15px}
+h2{margin:0 0 14px;font-size:20px;font-weight:560;letter-spacing:-0.01em}
+button{
+  cursor:pointer;
+  border:none;
+  border-radius:18px;
+  padding:12px;
+  font:inherit;
+  color:var(--text);
+  background:white;
+  -webkit-tap-highlight-color:transparent;
+}
+.quick-actions{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-bottom:14px}
+.quick-actions button{background:var(--soft);font-size:15px;text-align:center}
+.suggestion-result{background:#f7efe5;border-radius:22px;padding:15px;border:1px solid #eaded1}
+.suggestion-content{font-size:18px;margin-bottom:14px;line-height:1.35}
+.suggestion-actions{display:flex;gap:10px}
+.suggestion-actions button{flex:1;font-size:14px}
+.primary{background:var(--sage-dark);color:white}.secondary{background:#ede3d7}
+.dashboard-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.dashboard-item{background:white;border-radius:20px;padding:13px;text-align:center;border:1px solid #f0e6dc}
+.dashboard-item span{font-size:22px;display:block}.dashboard-item strong{display:block;margin-top:5px;font-size:17px}.dashboard-item small{color:var(--sub);font-size:12px}
+.daily-habits{display:grid;gap:10px;margin-bottom:14px}
+.check-line,.task{display:flex;align-items:center;gap:10px;background:white;border:1px solid #f0e6dc;border-radius:18px;padding:13px;line-height:1.35}
+input[type="checkbox"]{width:20px;height:20px;accent-color:var(--sage-dark);flex:0 0 auto}
+.steps-card{background:white;border-radius:20px;padding:14px;border:1px solid #f0e6dc}
+.steps-header{display:flex;justify-content:space-between;gap:10px;align-items:center;margin-bottom:10px}.steps-header strong{white-space:nowrap}
+.progress-bar{background:#ebe3da;border-radius:999px;height:12px;overflow:hidden}.progress-fill{width:85%;background:linear-gradient(90deg,var(--sage),var(--sage-dark));height:100%;border-radius:999px}
+.section-header{display:flex;justify-content:space-between;align-items:center;gap:12px}.section-header button{width:42px;height:42px;display:grid;place-items:center;background:var(--soft)}
+.todo-list{display:grid;gap:10px}
+.food-shortcuts{display:grid;gap:10px;grid-template-columns:repeat(2,1fr)}.food-shortcuts button{text-align:left;background:white;border:1px solid #f0e6dc;line-height:1.25}
+@media(max-width:380px){.dashboard-grid,.quick-actions,.food-shortcuts{grid-template-columns:1fr}.hero h1{font-size:29px}}
+</style>
+</head>
+<body>
+<main id="home-page">
+  <section class="card hero">
+    <h1>Bonjour Margot ✿</h1>
+    <p>Niveau 3 • Constance</p>
+  </section>
+
+  <section class="card">
+    <h2>✨ Suggestion du moment</h2>
+    <div class="quick-actions">
+      <button>🎲 Anti-scroll</button>
+      <button>😊 Mood</button>
+      <button>📅 Tâche douce</button>
+      <button>🍿 Culture surprise</button>
+    </div>
+    <div class="suggestion-result">
+      <div class="suggestion-content">📚 Lire 10 pages</div>
+      <div class="suggestion-actions">
+        <button class="primary">✅ Ça me va</button>
+        <button class="secondary">🔄 Une autre idée</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>📊 Tableau de bord</h2>
+    <div class="dashboard-grid">
+      <article class="dashboard-item"><span>⭐</span><strong>1250</strong><small>Points</small></article>
+      <article class="dashboard-item"><span>💪</span><strong>2 / 4</strong><small>Sport</small></article>
+      <article class="dashboard-item"><span>🌿</span><strong>4 / 7</strong><small>Skincare</small></article>
+      <article class="dashboard-item"><span>🧘</span><strong>3 / 7</strong><small>Stretching</small></article>
+      <article class="dashboard-item"><span>👣</span><strong>8500</strong><small>Pas</small></article>
+      <article class="dashboard-item"><span>📅</span><strong>12</strong><small>To-do</small></article>
+      <article class="dashboard-item"><span>🍽️</span><strong>1450 / 1700</strong><small>Calories</small></article>
+      <article class="dashboard-item"><span>🥩</span><strong>98 / 120 g</strong><small>Protéines</small></article>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>✅ Mes quotidiens</h2>
+    <div class="daily-habits">
+      <label class="check-line"><input type="checkbox">🌿 Skincare</label>
+      <label class="check-line"><input type="checkbox">🧘 Stretching</label>
+    </div>
+    <div class="steps-card">
+      <div class="steps-header"><span>👣 Pas</span><strong>8500 / 10000</strong></div>
+      <div class="progress-bar"><div class="progress-fill"></div></div>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="section-header"><h2>📅 Aujourd'hui</h2><button>➕</button></div>
+    <div class="todo-list">
+      <label class="task"><input type="checkbox">Appeler assurance</label>
+      <label class="task"><input type="checkbox">Commander filtres lave-vaisselle</label>
+      <label class="task"><input type="checkbox">Finir présentation COMEX</label>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>📆 Demain</h2>
+    <div class="todo-list">
+      <label class="task"><input type="checkbox">Appeler banque</label>
+      <label class="task"><input type="checkbox">Préparer dossier appartement</label>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>🍽️ Ajout rapide</h2>
+    <div class="food-shortcuts">
+      <button>🥣 Petit-déjeuner Margot</button>
+      <button>🍱 Bowl Thaï Poulet</button>
+      <button>🍱 Poulet Riz Brocoli</button>
+      <button>🍱 Butter Chicken</button>
+      <button>🍌 Banane</button>
+      <button>🥚 Œufs</button>
+      <button>🥩 Viande des Grisons</button>
+      <button>🍷 Rosé</button>
+      <button>🍹 Spritz</button>
+    </div>
+  </section>
+</main>
+<script>
+if ('serviceWorker' in navigator) { navigator.serviceWorker.register('./sw.js'); }
+</script>
+</body>
+</html>
