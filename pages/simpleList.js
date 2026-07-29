@@ -1,0 +1,3 @@
+import { save, go, state } from '../app.js';
+export function renderListPage(s,key,title,placeholder){setTimeout(()=>bindList(key));return `<!-- PAGE ${title.toUpperCase()} --><div class="card"><h2>${title}</h2><input class="input" id="li" placeholder="${placeholder}"><button class="btn" id="addL">Ajouter</button></div><div class="card">${s.lists[key].map((x,i)=>`<div class="item"><span>${x}</span><button class="chip danger" data-ldel="${i}">×</button></div>`).join('')}</div>`}
+function bindList(key){document.getElementById('addL').onclick=()=>{let v=document.getElementById('li').value.trim();if(v)state.lists[key].push(v);save();go(key)};document.querySelectorAll('[data-ldel]').forEach(b=>b.onclick=()=>{state.lists[key].splice(b.dataset.ldel,1);save();go(key)})}

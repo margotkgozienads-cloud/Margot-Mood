@@ -1,0 +1,3 @@
+import { addPts, save, go, state } from '../app.js';
+export function renderHobbies(s){setTimeout(bindHobbies);return `<!-- PAGE HOBBIES --><div class="card"><h2>Hobbies</h2><p class="muted">+30 points par action validée.</p>${Object.keys(s.hobbies).map(k=>`<div class="item"><span>${k}</span><span><b>${s.hobbies[k]}</b> fois <button class="chip" data-hobby="${k}">+1</button></span></div>`).join('')}</div>`}
+function bindHobbies(){document.querySelectorAll('[data-hobby]').forEach(b=>b.onclick=()=>{state.hobbies[b.dataset.hobby]++;addPts(30);save();go('hobbies')})}
