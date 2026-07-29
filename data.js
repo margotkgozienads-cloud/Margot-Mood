@@ -1,4 +1,53 @@
-export const MOVIES = [{"title": "Inception", "cat": "SF", "sub": "Mind-bending", "status": "À voir"}, {"title": "Interstellar", "cat": "SF", "sub": "Émotion", "status": "À voir"}, {"title": "Arrival", "cat": "SF", "sub": "Alien sensible", "status": "À voir"}, {"title": "Dune", "cat": "SF", "sub": "Épique", "status": "À voir"}, {"title": "Her", "cat": "SF", "sub": "Doux", "status": "À voir"}, {"title": "Blade Runner 2049", "cat": "SF", "sub": "Esthétique", "status": "À voir"}, {"title": "Ex Machina", "cat": "SF", "sub": "IA", "status": "À voir"}, {"title": "The Matrix", "cat": "SF", "sub": "Culte", "status": "À revoir"}, {"title": "Everything Everywhere All at Once", "cat": "Feel good", "sub": "Bizarre génial", "status": "À voir"}, {"title": "Little Miss Sunshine", "cat": "Feel good", "sub": "Famille", "status": "À voir"}, {"title": "Paddington 2", "cat": "Feel good", "sub": "Doudou", "status": "À voir"}, {"title": "The Grand Budapest Hotel", "cat": "Feel good", "sub": "Esthétique", "status": "À voir"}, {"title": "Amélie Poulain", "cat": "Feel good", "sub": "Paris", "status": "À revoir"}, {"title": "La La Land", "cat": "Feel good", "sub": "Musical", "status": "À revoir"}, {"title": "Pride and Prejudice", "cat": "Romance", "sub": "Cosy", "status": "À revoir"}, {"title": "About Time", "cat": "Romance", "sub": "Doudou", "status": "À voir"}, {"title": "Before Sunrise", "cat": "Romance", "sub": "Dialogue", "status": "À voir"}, {"title": "Eternal Sunshine", "cat": "Romance", "sub": "Mélancolie", "status": "À revoir"}, {"title": "Gone Girl", "cat": "Thriller", "sub": "Tendu", "status": "À voir"}, {"title": "Prisoners", "cat": "Thriller", "sub": "Sombre", "status": "À voir"}, {"title": "Shutter Island", "cat": "Thriller", "sub": "Twist", "status": "À revoir"}, {"title": "Zodiac", "cat": "Thriller", "sub": "Enquête", "status": "À voir"}, {"title": "Knives Out", "cat": "Thriller", "sub": "Fun", "status": "À voir"}, {"title": "Parasite", "cat": "Drame", "sub": "Social", "status": "À voir"}, {"title": "The Father", "cat": "Drame", "sub": "Fort", "status": "À voir"}, {"title": "Portrait de la jeune fille en feu", "cat": "Drame", "sub": "Français", "status": "À voir"}, {"title": "Anatomie d’une chute", "cat": "Drame", "sub": "Français", "status": "À voir"}, {"title": "Le Fabuleux Destin d’Amélie Poulain", "cat": "Français", "sub": "Poétique", "status": "À revoir"}, {"title": "Intouchables", "cat": "Français", "sub": "Feel good", "status": "À revoir"}, {"title": "Le Prénom", "cat": "Français", "sub": "Comédie", "status": "À revoir"}, {"title": "La Haine", "cat": "Français", "sub": "Culte", "status": "À voir"}, {"title": "Le Dîner de cons", "cat": "Français", "sub": "Comédie", "status": "À revoir"}, {"title": "Spirited Away", "cat": "Anime", "sub": "Ghibli", "status": "À revoir"}, {"title": "Howl’s Moving Castle", "cat": "Anime", "sub": "Ghibli", "status": "À revoir"}, {"title": "Your Name", "cat": "Anime", "sub": "Émotion", "status": "À voir"}, {"title": "A Silent Voice", "cat": "Anime", "sub": "Émotion", "status": "À voir"}, {"title": "Akira", "cat": "Anime", "sub": "Culte", "status": "À voir"}, {"title": "The Dark Knight", "cat": "Action", "sub": "Culte", "status": "À revoir"}, {"title": "Mad Max Fury Road", "cat": "Action", "sub": "Adrénaline", "status": "À voir"}, {"title": "Mission Impossible Fallout", "cat": "Action", "sub": "Spectaculaire", "status": "À voir"}, {"title": "John Wick", "cat": "Action", "sub": "Stylé", "status": "À voir"}, {"title": "Top Gun Maverick", "cat": "Action", "sub": "Épique", "status": "À voir"}, {"title": "The Social Network", "cat": "Biopic", "sub": "Tech", "status": "À voir"}, {"title": "Oppenheimer", "cat": "Biopic", "sub": "Historique", "status": "À voir"}, {"title": "Bohemian Rhapsody", "cat": "Biopic", "sub": "Musique", "status": "À revoir"}, {"title": "The Imitation Game", "cat": "Biopic", "sub": "Historique", "status": "À voir"}, {"title": "Soul", "cat": "Animation", "sub": "Doux", "status": "À voir"}, {"title": "Coco", "cat": "Animation", "sub": "Émotion", "status": "À revoir"}, {"title": "Ratatouille", "cat": "Animation", "sub": "Paris", "status": "À revoir"}, {"title": "Inside Out", "cat": "Animation", "sub": "Mood", "status": "À revoir"}, {"title": "The Holiday", "cat": "Cosy", "sub": "Doudou", "status": "À revoir"}, {"title": "Julie & Julia", "cat": "Cosy", "sub": "Cuisine", "status": "À voir"}, {"title": "Mamma Mia", "cat": "Musical", "sub": "Fun", "status": "À revoir"}, {"title": "Whiplash", "cat": "Musique", "sub": "Intense", "status": "À voir"}];
+export const MOVIES = export const MOVIES = export const MOVIES = [
+
+  // DISNEY
+
+  { title:"Blanche-Neige et les Sept Nains", cat:"Disney", sub:"Classique" },
+  { title:"Pinocchio", cat:"Disney", sub:"Classique" },
+  { title:"Fantasia", cat:"Disney", sub:"Classique" },
+  { title:"Dumbo", cat:"Disney", sub:"Classique" },
+  { title:"Bambi", cat:"Disney", sub:"Classique" },
+  { title:"Cendrillon", cat:"Disney", sub:"Classique" },
+  { title:"Alice au Pays des Merveilles", cat:"Disney", sub:"Classique" },
+  { title:"Peter Pan", cat:"Disney", sub:"Classique" },
+  { title:"La Belle et le Clochard", cat:"Disney", sub:"Classique" },
+  { title:"La Belle au Bois Dormant", cat:"Disney", sub:"Classique" },
+  { title:"Les 101 Dalmatiens", cat:"Disney", sub:"Classique" },
+  { title:"Merlin l'Enchanteur", cat:"Disney", sub:"Classique" },
+  { title:"Le Livre de la Jungle", cat:"Disney", sub:"Classique" },
+  { title:"Les Aristochats", cat:"Disney", sub:"Classique" },
+  { title:"Robin des Bois", cat:"Disney", sub:"Classique" },
+  { title:"Bernard et Bianca", cat:"Disney", sub:"Classique" },
+  { title:"La Petite Sirène", cat:"Disney", sub:"Classique" },
+  { title:"La Belle et la Bête", cat:"Disney", sub:"Classique" },
+  { title:"Aladdin", cat:"Disney", sub:"Classique" },
+  { title:"Le Roi Lion", cat:"Disney", sub:"Classique" },
+  { title:"Pocahontas", cat:"Disney", sub:"Classique" },
+  { title:"Le Bossu de Notre-Dame", cat:"Disney", sub:"Classique" },
+  { title:"Hercule", cat:"Disney", sub:"Classique" },
+  { title:"Mulan", cat:"Disney", sub:"Classique" },
+  { title:"Tarzan", cat:"Disney", sub:"Classique" },
+  { title:"Atlantide", cat:"Disney", sub:"Classique" },
+  { title:"Lilo & Stitch", cat:"Disney", sub:"Classique" },
+  { title:"La Planète au Trésor", cat:"Disney", sub:"Classique" },
+  { title:"La Princesse et la Grenouille", cat:"Disney", sub:"Moderne" },
+  { title:"Raiponce", cat:"Disney", sub:"Moderne" },
+  { title:"Les Mondes de Ralph", cat:"Disney", sub:"Moderne" },
+  { title:"La Reine des Neiges", cat:"Disney", sub:"Moderne" },
+  { title:"Zootopie", cat:"Disney", sub:"Moderne" },
+  { title:"Vaiana", cat:"Disney", sub:"Moderne" },
+  { title:"Encanto", cat:"Disney", sub:"Moderne" },
+
+  // PIXAR
+
+  { title:"Toy Story", cat:"Pixar", sub:"Animation" },
+  { title:"1001 Pattes", cat:"Pixar", sub:"Animation" },
+  { title:"Toy Story 2", cat:"Pixar", sub:"Animation" },
+  { title:"Monstres & Cie", cat:"Pixar", sub:"Animation" },
+  { title:"Le Monde de Nemo", cat:"Pixar", sub:"Animation" },
+  { title:"Les Indestructibles", cat:"Pixar", sub:"Animation" },
+  { title:"Cars", cat:"Pixar", sub:"Animation" },
+  { title:"Ratatouille", cat:"Pixar
 export const MEALS = [{name:'Skyr + granola + fruits',kcal:380,prot:28,type:'Petit-déj'},{name:'Oeufs + avocat + pain complet',kcal:520,prot:26,type:'Petit-déj'},{name:'Poulet riz légumes',kcal:650,prot:45,type:'Déjeuner'},{name:'Saumon patate douce',kcal:620,prot:38,type:'Dîner'},{name:'Salade thon oeuf',kcal:480,prot:42,type:'Déjeuner'},{name:'Pâtes pesto poulet',kcal:720,prot:42,type:'Dîner'},{name:'Pinte bière blonde',kcal:220,prot:2,type:'Alcool'},{name:'Spritz',kcal:180,prot:0,type:'Alcool'},{name:'Verre de rosé',kcal:120,prot:0,type:'Alcool'}];
 export const IDEAS = [['fatiguée','réconfort','Plaid, douche chaude, repas simple et épisode doudou.'],['stressée','calme','10 minutes de rangement doux puis respiration 4-7-8.'],['motivée','bouger','Petite séance express + playlist qui donne confiance.'],['seule','lien','Envoyer un vocal à quelqu’un que tu aimes, sans pression.'],['créative','inspiration','Mini moodboard photo, appart ou culture pendant 20 min.'],['triste','douceur','Skincare, tisane, zéro objectif compliqué ce soir.']];
 export const LEVELS = [0,250,600,1200,2000,3000,4500,6500,9000,12000,16000,21000];
