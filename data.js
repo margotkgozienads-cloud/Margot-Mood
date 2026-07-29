@@ -1,1 +1,15 @@
-,done:false},{text:'Préparer sac de sport',date:'tomorrow',done:false}],agenda:[{day:'today',time:'09:30',title:'Point équipe'},{day:'tomorrow',time:'14:00',title:'Créneau focus'}],sport:{week:2,month:9,stretch:3,km:18,cal:0,sessions:[],period:{start:'',flow:'',notes:''}},hobbies:{photo:1,lecture:0,gaming:0,films:0,series:0,famille:0,amis:0,animaux:0,politique:0},lists:{courses:['Skyr','Poulet','Légumes','Fruits rouges'],appart:['Lessive','Aspirateur','Vérifier plantes'],envies:['Reprendre la photo','Soirée cinéma cosy']},watched:[],favs:[],rewards:[{name:'Café spécial',cost:300,bought:false},{name:'Bouquet de fleurs',cost:800,bought:false},{name:'Petit achat déco',cost:1500,bought:false}]};
+// data.js
+// Fichier de données global de Margot Mood
+// Pour l’instant, on garde des exports vides pour éviter que l’appli plante.
+
+export const MOVIES = [];
+
+export const MEALS = [];
+
+export const MOODS = [];
+
+export const QUOTES = [];
+
+export const TASKS = [];
+
+export const CULTURE = [];
