@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Margot Mood - Accueil</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app-shell">
+    <header class="hero-card">
+      <div class="hero-top">
+        <div>
+          <p class="eyebrow">Mercredi 29 juillet</p>
+          <h1>Bonjour Margot ☀️</h1>
+        </div>
+        <button class="tiny-pill" aria-label="Niveau actuel">Niv. 14</button>
+      </div>
+
+      <div class="micro-level">
+        <div class="micro-level-text">
+          <span>2 860 pts</span>
+          <span>640 pts avant le niveau 15</span>
+        </div>
+        <div class="micro-track"><div class="micro-fill"></div></div>
+      </div>
+    </header>
+
+    <section class="card dashboard-card">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Vue rapide</p>
+          <h2>Tableau de bord</h2>
+        </div>
+        <span class="soft-badge">Semaine</span>
+      </div>
+
+      <div class="dashboard-grid">
+        <article class="stat wide accent">
+          <div class="stat-icon">🏋️</div>
+          <div>
+            <strong>3/4</strong>
+            <span>Sport</span>
+          </div>
+          <div class="mini-progress"><i style="width:75%"></i></div>
+        </article>
+
+        <article class="stat accent-2">
+          <div class="stat-icon">✨</div>
+          <strong>5/7</strong>
+          <span>Skincare</span>
+        </article>
+
+        <article class="stat accent-3">
+          <div class="stat-icon">💧</div>
+          <strong>6/7</strong>
+          <span>Eau</span>
+        </article>
+
+        <article class="stat">
+          <div class="stat-icon">📚</div>
+          <strong>2h40</strong>
+          <span>Lecture</span>
+        </article>
+
+        <article class="stat">
+          <div class="stat-icon">🎬</div>
+          <strong>4</strong>
+          <span>Culture</span>
+        </article>
+
+        <article class="stat">
+          <div class="stat-icon">✅</div>
+          <strong>18</strong>
+          <span>Tâches</span>
+        </article>
+
+        <article class="stat">
+          <div class="stat-icon">😊</div>
+          <strong>7,8</strong>
+          <span>Humeur</span>
+        </article>
+
+        <article class="stat">
+          <div class="stat-icon">🔥</div>
+          <strong>4 j</strong>
+          <span>Série active</span>
+        </article>
+      </div>
+    </section>
+
+    <section class="card compact-card">
+      <div class="section-head tight">
+        <div>
+          <p class="eyebrow">Aujourd'hui</p>
+          <h2>Mes quotidiens</h2>
+        </div>
+        <span class="soft-badge">4/6</span>
+      </div>
+
+      <div class="habit-row">
+        <button class="habit done">💧 Eau</button>
+        <button class="habit done">✨ Skin</button>
+        <button class="habit done">🚶 Pas</button>
+        <button class="habit done">📚 Lire</button>
+        <button class="habit">🏋️ Sport</button>
+        <button class="habit">🧘 Resp.</button>
+      </div>
+
+      <div class="daily-track"><div></div></div>
+    </section>
+
+    <section class="quick-row">
+      <article class="quick-card antiscroll">
+        <div class="quick-top">
+          <span>📵</span>
+          <small>Anti-scroll</small>
+        </div>
+        <h3>30 min sans écran</h3>
+        <p>Défi court pour reprendre le contrôle.</p>
+        <button onclick="setToast('Défi anti-scroll lancé 📵')">Lancer</button>
+      </article>
+
+      <article class="quick-card culture">
+        <div class="quick-top">
+          <span>🎲</span>
+          <small>Surprise Culture</small>
+        </div>
+        <h3 id="cultureTitle">About Time</h3>
+        <p id="cultureMeta">Film feel good • 2h03</p>
+        <button onclick="newCulture()">Changer</button>
+      </article>
+    </section>
+
+    <section class="card split-card">
+      <div class="section-head tight">
+        <div>
+          <p class="eyebrow">Priorités</p>
+          <h2>To-do</h2>
+        </div>
+        <button class="ghost-btn" onclick="setToast('Vue complète à connecter dans la V finale')">Tout voir</button>
+      </div>
+
+      <div class="todo-columns">
+        <div class="todo-block">
+          <h3>Aujourd'hui</h3>
+          <label class="todo-item"><input type="checkbox" checked><span>Point équipe</span></label>
+          <label class="todo-item"><input type="checkbox"><span>Séance sport</span></label>
+          <label class="todo-item"><input type="checkbox"><span>Lire 20 min</span></label>
+          <label class="todo-item"><input type="checkbox"><span>Finaliser cadeau Laure</span></label>
+        </div>
+
+        <div class="todo-block tomorrow">
+          <h3>Demain</h3>
+          <label class="todo-item"><input type="checkbox"><span>Skincare complète</span></label>
+          <label class="todo-item"><input type="checkbox"><span>Courses</span></label>
+          <label class="todo-item"><input type="checkbox"><span>Préparer le week-end</span></label>
+        </div>
+      </div>
+    </section>
+
+    <section class="card agenda-card">
+      <div class="section-head tight">
+        <div>
+          <p class="eyebrow">Planning</p>
+          <h2>Agenda</h2>
+        </div>
+        <span class="soft-badge">2 jours</span>
+      </div>
+
+      <div class="agenda-day">
+        <h3>Aujourd'hui</h3>
+        <div class="timeline-item">
+          <time>10h00</time>
+          <div><strong>Point équipe</strong><span>Suivi rapide</span></div>
+        </div>
+        <div class="timeline-item">
+          <time>14h00</time>
+          <div><strong>Projet DOOH</strong><span>Avancement</span></div>
+        </div>
+        <div class="timeline-item sport">
+          <time>18h30</time>
+          <div><strong>Sport</strong><span>Séance 3/4</span></div>
+        </div>
+      </div>
+
+      <div class="agenda-day tomorrow-agenda">
+        <h3>Demain</h3>
+        <div class="timeline-item">
+          <time>09h00</time>
+          <div><strong>Routine matin</strong><span>Skincare + eau</span></div>
+        </div>
+        <div class="timeline-item">
+          <time>20h00</time>
+          <div><strong>Lecture</strong><span>20 minutes</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="card weekly-card">
+      <div class="section-head tight">
+        <div>
+          <p class="eyebrow">Focus</p>
+          <h2>Objectif semaine</h2>
+        </div>
+        <span class="soft-badge">75%</span>
+      </div>
+      <div class="goal-box">
+        <div>
+          <strong>Reprendre le rythme sport</strong>
+          <span>3 séances faites sur 4</span>
+        </div>
+        <div class="goal-ring">3/4</div>
+      </div>
+    </section>
+
+    <nav class="bottom-nav" aria-label="Navigation principale">
+      <button class="active">🏠<span>Accueil</span></button>
+      <button>😊<span>Mood</span></button>
+      <button>✅<span>To-do</span></button>
+      <button>🎬<span>Culture</span></button>
+      <button>📊<span>Stats</span></button>
+    </nav>
+  </main>
+
+  <div id="toast" class="toast">Action</div>
+  <script src="script.js"></script>
+</body>
+</html>
